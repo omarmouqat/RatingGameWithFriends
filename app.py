@@ -44,7 +44,7 @@ def calculate_averages():
 
 
 def write_individual_ratings_to_file():
-    with open("result.txt", "a", encoding="utf-8") as file:
+    with open("result.txt", "w", encoding="utf-8") as file:
         file.write("===== INDIVIDUAL RATINGS =====\n")
         for rater in st.session_state.players:
             file.write(f"\n🧑‍⚖️ {rater}'s ratings for others:\n")
@@ -54,6 +54,22 @@ def write_individual_ratings_to_file():
                     file.write(f"  → {rated}:\n")
                     for cat in st.session_state.categories:
                         file.write(f"     - {cat}: {entry[cat]}/10\n")
+
+
+def show_all_ratings_in_app():
+    st.markdown("## 🗂️ All Submitted Ratings")
+    for rater in st.session_state.players:
+        st.markdown(f"### 🧑‍⚖️ {rater}'s ratings")
+        found = False
+        for entry in st.session_state.ratings:
+            if entry['Rater'] == rater:
+                rated = entry['Rated Player']
+                found = True
+                st.markdown(f"**→ {rated}**")
+                for cat in st.session_state.categories:
+                    st.write(f"- {cat}: {entry[cat]}/10")
+        if not found:
+            st.write("No ratings submitted.")
 
 
 def main():
@@ -84,7 +100,7 @@ def main():
         if st.session_state.current_rater < len(st.session_state.players):
             current_player = st.session_state.players[st.session_state.current_rater]
             st.subheader(f"👋 {current_player}'s Turn")
-            st.write("Rate other players anonymously (1-10):")
+            st.write("Rate other players anonymously (1–10):")
 
             ratings = {}
             with st.form("rating_form"):
@@ -126,7 +142,9 @@ def main():
                     else:
                         st.metric(category, "N/A")
 
+            show_all_ratings_in_app()
             write_individual_ratings_to_file()
+            st.success("✅ All ratings have been saved to result.txt!")
 
             if st.button("Play Again"):
                 st.session_state.clear()

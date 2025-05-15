@@ -1,0 +1,31 @@
+===== INDIVIDUAL RATINGS =====
+
+🧑‍⚖️ anas's ratings for others:
+  → hassan:
+     - Beauty: 5/10
+     - Charisma: 5/10
+     - Physique: 5/10
+  → omar:
+     - Beauty: 5/10
+     - Charisma: 5/10
+     - Physique: 5/10
+
+🧑‍⚖️ hassan's ratings for others:
+  → anas:
+     - Beauty: 5/10
+     - Charisma: 5/10
+     - Physique: 5/10
+  → omar:
+     - Beauty: 5/10
+     - Charisma: 5/10
+     - Physique: 5/10
+
+🧑‍⚖️ omar's ratings for others:
+  → anas:
+     - Beauty: 5/10
+     - Charisma: 5/10
+     - Physique: 5/10
+  → hassan:
+     - Beauty: 5/10
+     - Charisma: 5/10
+     - Physique: 5/10
